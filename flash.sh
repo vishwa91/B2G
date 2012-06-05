@@ -132,6 +132,10 @@ case "$1" in
 esac
 
 case "$DEVICE" in
+"ideos")
+	flash_fastboot unlock $1
+	;;
+
 "otoro")
 	flash_fastboot nounlock $1
 	;;
