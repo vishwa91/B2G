@@ -18,6 +18,7 @@ gaia/
 gecko/
 gonk-misc/
 hardware/
+kernel/
 libcore/
 ndk/
 objdir-gecko/
