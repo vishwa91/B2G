@@ -56,10 +56,16 @@ if [ -n "$2" ]; then
 	git commit -m "manifest" &&
 	cd ..
 else
-	GITREPO="git://github.com/mozilla-b2g/b2g-manifest"
+	GITREPO="git://github.com/praveenv253/b2g-manifest"
 fi
 
 case "$1" in
+"ideos")
+	echo DEVICE=ideos > .config &&
+	repo_sync ideos &&
+	(cd device/huawei/ideos && ./extract-files.sh)
+	;;
+
 "galaxy-s2")
 	echo DEVICE=galaxys2 > .config &&
 	repo_sync galaxy-s2 &&
@@ -108,6 +114,7 @@ case "$1" in
 	echo Usage: $0 \(device name\)
 	echo
 	echo Valid devices to configure are:
+	echo - ideos
 	echo - galaxy-s2
 	echo - galaxy-nexus
 	echo - nexus-s
