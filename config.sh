@@ -63,7 +63,7 @@ case "$1" in
 "ideos")
 	echo DEVICE=ideos > .config &&
 	repo_sync ideos &&
-	(cd device/huawei/ideos && ./extract-files.sh)
+	(cd device/huawei/u8150 && ./extract-files.sh)
 	;;
 
 "galaxy-s2")
