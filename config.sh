@@ -56,7 +56,7 @@ if [ -n "$2" ]; then
 	git commit -m "manifest" &&
 	cd ..
 else
-	GITREPO="git://github.com/praveenv253/b2g-manifest"
+	GITREPO="git@github.com:praveenv253/b2g-manifest"
 fi
 
 case "$1" in
