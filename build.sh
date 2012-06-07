@@ -2,7 +2,7 @@
 
 # Adding support to build kernel
 
-if [ $1 == "kernel" ]; then
+if [[ "$1" == "kernel" ]]; then
 	echo 'Will now start building kernel'
 	export CROSS_COMPILE=/home/vishwanath/Documents/Files/myB2G/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
