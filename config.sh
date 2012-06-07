@@ -61,7 +61,7 @@ fi
 
 case "$1" in
 "ideos")
-	echo DEVICE=ideos > .config &&
+	echo DEVICE=u8150 > .config &&
 	repo_sync ideos &&
 	(cd device/huawei/u8150 && ./extract-files.sh)
 	;;
