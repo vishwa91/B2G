@@ -4,17 +4,17 @@
 
 if [[ "$1" == "kernel" ]]; then
 	echo 'Will now start building kernel'
-	export CROSS_COMPILE=/home/vishwanath/Documents/Files/myB2G/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
+	export CROSS_COMPILE="$PWD"/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
 	cd kernel &&
-	make clean &&
-	make ARCH=arm cyanogen_u8150_defconfig &&
-	make ARCH=arm Image &&
-	make ARCH=arm modules 
+	make ARCH=arm cyanogen_u8150_defconfig  -j10 &&
+	make ARCH=arm zImage -j10 &&
+	make ARCH=arm modules -j10
 
 	echo 'Copying Image to device directory'
-	cp ./kernel/arch/arm/boot/Image ./device/huawei/ideos/kernel
-	chmod 776 device/huawei/ideos/kernel
+	cd ..
+	cp ./kernel/arch/arm/boot/zImage ./device/huawei/u8150/kernel
+	chmod 776 device/huawei/u8150/kernel
 	echo 'Kernel image created'
 	exit $?	
 fi
