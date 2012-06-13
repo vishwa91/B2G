@@ -56,10 +56,15 @@ if [ -n "$2" ]; then
 	git commit -m "manifest" &&
 	cd ..
 else
-	GITREPO="git://github.com/mozilla-b2g/b2g-manifest"
+	GITREPO="ssh://git@github.com/praveenv253/b2g-manifest"
 fi
 
 case "$1" in
+"totoro")
+	echo DEVICE=totoro > .config &&
+	repo_sync totoro &&
+	;;
+
 "galaxy-s2")
 	echo DEVICE=galaxys2 > .config &&
 	repo_sync galaxy-s2 &&
