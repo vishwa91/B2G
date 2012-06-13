@@ -62,7 +62,7 @@ fi
 case "$1" in
 "totoro")
 	echo DEVICE=totoro > .config &&
-	repo_sync totoro &&
+	repo_sync totoro
 	;;
 
 "galaxy-s2")
