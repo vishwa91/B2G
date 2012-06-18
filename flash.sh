@@ -132,7 +132,7 @@ case "$1" in
 esac
 
 case "$DEVICE" in
-"ideos")
+"u8150")
 	flash_fastboot unlock $1
 	;;
 
