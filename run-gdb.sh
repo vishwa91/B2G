@@ -11,12 +11,15 @@ GDBINIT=/tmp/b2g.gdbinit.`whoami`
 GONK_OBJDIR=out/target/product/$DEVICE
 SYMDIR=$GONK_OBJDIR/symbols
 
+GECKO_OBJDIR=out/target/product/$DEVICE/obj/objdir-gecko
+
 echo "set solib-absolute-prefix $SYMDIR" > $GDBINIT
 echo "set solib-search-path $GECKO_OBJDIR/dist/bin:$SYMDIR/system/lib:$SYMDIR/system/lib/hw:$SYMDIR/system/lib/egl:$GONK_OBJDIR/system/lib:$GONK_OBJDIR/system/lib/egl:$GONK_OBJDIR/system/lib/hw:$GONK_OBJDIR/system/vendor/lib:$GONK_OBJDIR/system/vendor/lib/hw:$GONK_OBJDIR/system/vendor/lib/egl" >> $GDBINIT
 echo "target extended-remote :$GDB_PORT" >> $GDBINIT
 
 GDBSERVER_PID=`$ADB shell toolbox ps |
                grep "gdbserver" | awk '{ print \$2; }'`
+
 B2G_PID=`$ADB shell toolbox ps |
          grep "b2g" | awk '{ print \$2; }'`
 
