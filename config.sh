@@ -60,6 +60,12 @@ else
 fi
 
 case "$1" in
+"ideos-cm")
+	echo DEVICE=u8150 > .config &&
+	repo_sync ideos-cm &&
+	(cd device/huawei/u8150 && ./extract-files.sh)
+	;;
+
 "ideos")
 	echo DEVICE=u8150 > .config &&
 	repo_sync ideos &&
@@ -114,6 +120,7 @@ case "$1" in
 	echo Usage: $0 \(device name\)
 	echo
 	echo Valid devices to configure are:
+	echo - ideos-cm
 	echo - ideos
 	echo - galaxy-s2
 	echo - galaxy-nexus
